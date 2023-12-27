@@ -2,13 +2,17 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bodyParser = require('body-parser');
+
 const PORT = 3030;
 const { mongo_url } = require('./config/db');
 var bcrypt = require("bcryptjs");
 // const AdminJS = require('adminjs');
 // const AdminJSExpress = require('@adminjs/express')
 // const AdminJSMongoose = require('@adminjs/mongoose')
-
+app.use(cors({ origin:'*'}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 
 const FormController = require('./controllers/FormController')
@@ -48,9 +52,6 @@ const FormModel = mongoose.model('Form');
 // );
 // app.use(admin.options.rootPath, adminRouter)
 
-app.use(cors())
-app.use(express.json({ limit: '50mb' }))
-app.use(express.urlencoded({ extended: false }))
 
 
 mongoose.connect(mongo_url, { useNewUrlParser: true, useUnifiedTopology: true });
