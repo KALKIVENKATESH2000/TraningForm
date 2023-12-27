@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/api/form', FormController);
 
 
-app.listen(PORT, "192.168.1.103",() => {
-    console.log(`Server listening at http://192.168.1.103:${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server listening at http://localhost:${PORT}`);
 })
