@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const PORT = 3030;
+const PORT = 3035;
 const { mongo_url } = require('./config/db');
 const FormController = require('./controllers/FormController')
 
@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/api/form', FormController);
 
 
-app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`);
+app.listen(PORT, "192.168.1.103",() => {
+    console.log(`Server listening at http://192.168.1.103:${PORT}`);
 })
